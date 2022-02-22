@@ -2,7 +2,7 @@
 
 10x Single-cell RNA sequencing (scRNA-seq) data from the study of transplanted human retinal organoids into the subretinal space of degenerating rd1 mouse retinas which is accessible on bioRxiv:
 
-<img align="left" src="./image/sample.png" width="450"><img align="left" src="./image/celltype.png" width="450"/>
+<img align="left" src="./image/sample.png" width="400"><img align="left" src="./image/celltype.png" width="400"/>
 <br>
 <br>
 <br>
