@@ -30,8 +30,8 @@ Transplant organoid | 2 |rd1_hgorg2
 Transplant organoid | 3 |rd1_hgorg3
 
 ### Count Matrix
-The cell by gene count matrix contains the gene counts for the merged dataset used in this study and is provided in .csv format and can be downloaded here:
-[counts.csv](https://www.dropbox.com/)
+The cell by gene count matrix contains the gene counts for the merged dataset used in this study and is provided in gziped .csv format and can be downloaded here:
+[counts.csv.gz](https://livejohnshopkins-my.sharepoint.com/:u:/g/personal/csanti10_jh_edu/EX6pLuZtP9tHl0y4dFUWPsIBnKUvpUfqL_UQfTmFVPrcDg?e=LFuGyt)
 
 ### Meta Data 
 The metadata file contains the assigned clusters, celltype annotations and UMAP coordinates that were used in the study.
