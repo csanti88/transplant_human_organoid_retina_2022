@@ -36,4 +36,4 @@ The cell by gene count matrix contains the gene counts for the merged dataset us
 ### Meta Data 
 The metadata file contains the assigned clusters, celltype annotations and UMAP coordinates that were used in the study.
 The metadata is provided in .csv format and can be downloaded here:
-[metadata.csv](https://www.dropbox.com/)
+[metadata.csv](https://livejohnshopkins-my.sharepoint.com/:u:/g/personal/csanti10_jh_edu/EZKHpIhkuyBCmzIqOWiYdcEB4D9bL4fD_FsiH3ipoxSN1w?e=7n5e7S)
