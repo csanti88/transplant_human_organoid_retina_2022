@@ -1,0 +1,54 @@
+library(biomaRt)
+ensembl = useMart("ensembl",dataset="hsapiens_gene_ensembl")
+gene.data <- getBM(attributes=c('hgnc_symbol', 'ensembl_transcript_id', 'go_id'),
+                   filters = 'go', values = 'GO:0007259', mart = ensembl)
+a <- unique (gene.data$hgnc_symbol)
+b <- intersect(rownames(rd1hgorg),a)
+
+
+#GO:0006956 #Complement activation
+#GO:0033554 #Cellular response to stress
+#GO:0034599 #Cellular response to oxidative stress
+#GO:0006954 #Inflammatory Response
+#GO:0007259 #receptor signaling pathway via JAK-STAT
+#GO:2000145 #Regulation of cell motility
+#GO:2000147 #Positive regulation of cell motility
+#GO:1903977 #Positive regulation of glial cell migration
+#GO:0010632 #Regulation of epithelial cell migration
+#GO:0030048 #Actin filament-based movement
+#GO:0030335 #Positive regulation of cell migration
+#GO:0051272 #Positive regulation of cellular component movement
+
+
+rd1hgorg <- AddModuleScore(rd1hgorg, features = list(b), 
+                           name = "JAK_pathway", search = T) 
+#Loop through various GO terms
+
+
+#Plotting
+FeaturePlot(rd1hgorg, 
+            features = "Complement_activation1", min.cutoff = 0) + 
+            ggtitle("GO:0006956 - Complement activation") +
+  theme(legend.position = "none")
+
+VlnPlot(rd1hgorg, features = "Complement_activation1", 
+        group.by = "Sample_type") + scale_y_continuous(limits = c(0,0.4)) + 
+        ggtitle("GO:0006956 - Complement activation") +
+        theme(axis.text.x = element_text(angle = 0, hjust = .5)) + 
+        theme(plot.title = element_text(size = 13)) +
+        theme(legend.position = "none")
+
+
+#Boxplot 
+df <- graft@meta.data
+df$Migration <- (df$Migration) * 2.5
+df$Proliferation <- (df$Proliferation) * 2.5
+ggplot(df, aes(x=Celltype,y = Migration, fill = Celltype)) + 
+  geom_boxplot() + labs(x="Celltype", y = "Cell Invasion Score (A.U)")+
+  theme_classic() +  geom_jitter(color="black", size=0.4, alpha=0.9) + 
+  theme (legend.position = "none")  
+
+ggplot(df, aes(x=Celltype,y = Proliferation, fill = Celltype)) + 
+  geom_boxplot() + labs(x="Celltype", y = "Cell Proliferation Score (A.U)")+
+  theme_classic() +  geom_jitter(color="black", size=0.4, alpha=0.9) + 
+  theme (legend.position = "none") 
